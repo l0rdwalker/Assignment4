@@ -1,0 +1,114 @@
+Translate the following into an array. E.g. for A to B the array would be something like [[8:00,9:00,10:00],30]. The '30' represents the duration of the trip to arrive at B from A. 
+B to A:
+Bus 1: Departure time - 8:30, Arrival time - 9:00
+Bus 2: Departure time - 9:30, Arrival time - 10:00
+Bus 3: Departure time - 10:30, Arrival time - 11:00
+
+I to B:
+Bus 1: Departure time - 11:00, Arrival time - 11:30
+Bus 2: Departure time - 12:30, Arrival time - 13:00
+Bus 3: Departure time - 14:00, Arrival time - 14:30
+
+D to B:
+Bus 1: Departure time - 10:00, Arrival time - 10:30
+Bus 2: Departure time - 11:30, Arrival time - 12:00
+Bus 3: Departure time - 13:30, Arrival time - 14:00
+
+D to I:
+Bus 1: Departure time - 14:30, Arrival time - 15:00
+Bus 2: Departure time - 16:00, Arrival time - 16:30
+Bus 3: Departure time - 17:30, Arrival time - 18:00
+
+C to I:
+Bus 1: Departure time - 15:30, Arrival time - 16:00
+Bus 2: Departure time - 17:00, Arrival time - 17:30
+Bus 3: Departure time - 19:00, Arrival time - 19:30
+
+H to D:
+Bus 1: Departure time - 12:00, Arrival time - 12:30
+Bus 2: Departure time - 14:00, Arrival time - 14:30
+Bus 3: Departure time - 16:00, Arrival time - 16:30
+
+H to C:
+Bus 1: Departure time - 15:30, Arrival time - 16:00
+Bus 2: Departure time - 17:00, Arrival time - 17:30
+Bus 3: Departure time - 19:00, Arrival time - 19:30
+
+G to C:
+Bus 1: Departure time - 15:30, Arrival time - 16:00
+Bus 2: Departure time - 17:00, Arrival time - 17:30
+Bus 3: Departure time - 19:00, Arrival time - 19:30
+
+E to G:
+Bus 1: Departure time - 17:30, Arrival time - 18:00
+Bus 2: Departure time - 19:00, Arrival time - 19:30
+Bus 3: Departure time - 20:30, Arrival time - 21:00
+
+F to G:
+Bus 1: Departure time - 17:30, Arrival time - 18:00
+Bus 2: Departure time - 19:00, Arrival time - 19:30
+Bus 3: Departure time - 20:30, Arrival time - 21:00
+
+E to F:
+Bus 1: Departure time - 20:00, Arrival time - 20:30
+Bus 2: Departure time - 21:00, Arrival time - 21:30
+Bus 3: Departure time - 22:30, Arrival time - 23:00
+
+a to b
+[  [["8:00", "9:00", "10:00"], 30],    // A to B
+  [["10:30", "12:00", "13:30"], 30],  // B to I
+  [["9:30", "11:00", "13:00"], 30],   // B to D
+  [["14:00", "15:30", "17:00"], 30],  // I to D
+  [["14:30", "16:00", "18:00"], 30],  // I to C
+  [["11:30", "13:30", "15:30"], 30],  // D to H
+  [["15:00", "16:30", "18:30"], 30],  // C to H
+  [["15:00", "16:30", "18:30"], 30],  // C to G
+  [["17:00", "18:30", "19:30"], 30],  // G to E
+  [["17:00", "18:30", "19:30"], 30],  // G to F
+  [["19:00", "20:00", "21:30"], 30],  // F to E
+]
+
+[
+  [["8:30", "9:30", "10:30"], 30],    # B to A
+  [["11:00", "12:30", "14:00"], 30],  # I to B
+  [["10:00", "11:30", "13:30"], 30],  # D to B
+  [["14:30", "16:00", "17:30"], 30],  # D to I
+  [["15:30", "17:00", "19:00"], 30],  # C to I
+  [["12:00", "14:00", "16:00"], 30],  # H to D
+  [["15:30", "17:00", "19:00"], 30],  # H to C
+  [["15:30", "17:00", "19:00"], 30],  # G to C
+  [["17:30", "19:00", "20:30"], 30],  # E to G
+  [["17:30", "19:00", "20:30"], 30],  # F to G
+  [["20:00", "21:00", "22:30"], 30],  # E to F
+]
+
+Combine the provided array together to follow the following format ["A","B",/*randomNum*/,30,["8:00", "9:00", "10:00"],["8:30", "9:30", "10:30"]]
+
+b to a 
+
+Replace /*randomNum*/ with randomly selected numbers between 1 and 12. 
+["A", "B", /*randomNum*/, 30, ["8:00", "9:00", "10:00"], ["8:30", "9:30", "10:30"]],
+["B", "I", /*randomNum*/, 30, ["10:30", "12:00", "13:30"], ["11:00", "12:30", "14:00"]],
+["B", "D", /*randomNum*/, 30, ["9:30", "11:00", "13:00"], ["10:00", "11:30", "13:30"]],
+["I", "D", /*randomNum*/, 30, ["14:00", "15:30", "17:00"], ["14:30", "16:00", "17:30"]],
+["I", "C", /*randomNum*/, 30, ["14:30", "16:00", "18:00"], ["15:00", "16:30", "18:30"]],
+["D", "H", /*randomNum*/, 30, ["11:30", "13:30", "15:30"], ["12:00", "14:00", "16:00"]],
+["C", "H", /*randomNum*/, 30, ["15:00", "16:30", "18:30"], ["15:30", "17:00", "19:00"]],
+["C", "G", /*randomNum*/, 30, ["15:00", "16:30", "18:30"], ["15:30", "17:00", "19:00"]],
+["G", "E", /*randomNum*/, 30, ["17:00", "18:30", "19:30"], ["17:30", "19:00", "20:30"]],
+["G", "F", /*randomNum*/, 30, ["17:00", "18:30", "19:30"], ["17:30", "19:00", "20:30"]],
+["F", "E", /*randomNum*/, 30, ["19:00", "20:00", "21:30"], ["20:00", "21:00", "22:30"]]
+
+
+Replace all of the times stored in strings into an int representing a quantity of minutes. E.g. "8:00" would become 480. "9:30" would become 570 etc. 
+["A", "B", 6, 30, ["8:00", "9:00", "10:00"], ["8:30", "9:30", "10:30"]],
+["B", "I", 9, 30, ["10:30", "12:00", "13:30"], ["11:00", "12:30", "14:00"]],
+["B", "D", 3, 30, ["9:30", "11:00", "13:00"], ["10:00", "11:30", "13:30"]],
+["I", "D", 4, 30, ["14:00", "15:30", "17:00"], ["14:30", "16:00", "17:30"]],
+["I", "C", 10, 30, ["14:30", "16:00", "18:00"], ["15:00", "16:30", "18:30"]],
+["D", "H", 5, 30, ["11:30", "13:30", "15:30"], ["12:00", "14:00", "16:00"]],
+["C", "H", 7, 30, ["15:00", "16:30", "18:30"], ["15:30", "17:00", "19:00"]],
+["C", "G", 8, 30, ["15:00", "16:30", "18:30"], ["15:30", "17:00", "19:00"]],
+["G", "E", 11, 30, ["17:00", "18:30", "19:30"], ["17:30", "19:00", "20:30"]],
+["G", "F", 2, 30, ["17:00", "18:30", "19:30"], ["17:30", "19:00", "20:30"]],
+["F", "E", 12, 30, ["19:00", "20:00", "21:30"], ["20:00", "21:00", "22:30"]]
